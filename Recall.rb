@@ -12,3 +12,7 @@ set :bind, '0.0.0.0'
   get '/form' do
     haml :form
   end
+
+  post '/form' do
+    "You have posted a #{params[:note]}"
+  end

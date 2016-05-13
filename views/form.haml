@@ -1,5 +1,9 @@
 !!!
 %html
-  %form{:action => "/form", :method => "post"}
-  %input{:name => "message", :type => "text"}/
-  %input{:type => "submit"}/
+  %form{ :action => "/form", :method => "post"}
+    %fieldset
+      %ol
+        %ui
+          %label{:for => "username"} Note:
+          %input{:type => "text", :name => "note", :class => "text"}
+      %input{:type => "submit", :value => "Save", :class => "button"}
