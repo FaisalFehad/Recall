@@ -16,3 +16,7 @@ set :bind, '0.0.0.0'
   post '/form' do
     "You have posted a #{params[:note]}"
   end
+
+  not_found do
+   halt 404, 'Page not found'
+  end
