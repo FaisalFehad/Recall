@@ -7,3 +7,6 @@
           %label{:for => "Note"} Note:
           %input{:type => "textarea", :name => "content", :class => "text"}
       %input{:type => "submit", :value => "Take Note!", :class => "button"}
+
+- @notes.each do |note|
+  %p= note.content
