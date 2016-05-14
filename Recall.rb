@@ -22,17 +22,13 @@ DataMapper.auto_upgrade!
   get '/' do
     @notes = Note.all :order => :id.desc
     @title = "All Notes"
-    haml :form
+    haml :index
   end
 
   get '/form' do
     haml :form
   end
 
-  post '/form' do
-    "You have posted a #{params[:note]}"
-  end
-
   not_found do
-   halt 404, 'Page not found'
+   halt 404, "Page not found"
   end

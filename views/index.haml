@@ -1,7 +1,9 @@
 !!!
 %html
-  %head
-    %title This will be the title
-  %body
-    %h1 This will the heading
-    %p This will be a text
+  %form{ :action => "/form", :method => "post"}
+    %fieldset
+      %ol
+        %ui
+          %label{:for => "username"} Note:
+          %input{:type => "text", :name => "note", :class => "text"}
+      %input{:type => "submit", :value => "Take Note!", :class => "button"}
