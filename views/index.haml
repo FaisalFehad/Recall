@@ -1,9 +1,9 @@
 !!!
 %html
-  %form{ :action => "/form", :method => "post"}
+  %form{ :action => "/", :method => "post"}
     %fieldset
       %ol
         %ui
-          %label{:for => "username"} Note:
-          %input{:type => "text", :name => "note", :class => "text"}
+          %label{:for => "Note"} Note:
+          %input{:type => "textarea", :name => "content", :class => "text"}
       %input{:type => "submit", :value => "Take Note!", :class => "button"}

@@ -25,8 +25,13 @@ DataMapper.auto_upgrade!
     haml :index
   end
 
-  get '/form' do
-    haml :form
+  post '/' do
+    n = Note.new
+    n.content = params[:content]
+    n.created_at = Time.now
+    n.updated_at = Time.now
+    n.save
+      redirect '/'
   end
 
   not_found do
