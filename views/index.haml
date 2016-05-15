@@ -10,3 +10,7 @@
 
 - @notes.each do |note|
   %p= note.content
+  %li
+    %a{ href: "#{note.id}", title: "Meet the Team" }
+      %strong
+        %em Edit
