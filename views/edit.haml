@@ -1,0 +1,7 @@
+-if @note
+  %form{:type => "#{@note.id}", :method => "post", :id => "edit"}
+    %input{:type => "hidden", :name => "method", :value => "put"}
+    %textarea{:name => "content"}
+      =@note.content
+    %input{:type => "checkbox", :name => "complete"}
+    %input{:type => "submit"}
