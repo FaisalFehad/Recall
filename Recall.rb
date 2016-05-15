@@ -65,7 +65,7 @@ end
 get '/:id/delete' do
 	@note = Note.get params[:id]
 	@title = "Confirm deletion of note ##{params[:id]}"
-	erb :delete
+	haml :delete
 end
 
 # Delte note by ID
