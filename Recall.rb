@@ -2,22 +2,35 @@
 require 'sinatra'
 require 'rubygems'
 require 'data_mapper'
+require "bcrypt"
+
+# Enable login sessions
+enable :sessions
 
 # forward port for Vagrant
 set :bind, '0.0.0.0'
 
-# DB Schema
+# DB modle
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/recall.db")
 
 class Note
 	include DataMapper::Resource
-	property :id, Serial
-	property :content, Text, :required => true
+	property :id, Serial, :key => true
+	property :content, Text, :required => true, :length => 2..90
 	property :complete, Boolean, :required => true, :default => 0
 	property :created_at, DateTime
 	property :updated_at, DateTime
 end
 DataMapper.auto_upgrade!
+
+class User
+	include DataMapper::Resource
+	property :id, Serial, :key => true
+	property :email, String, :required => true, :format => :email_address, :unique => true, :length => 3..50
+	property :password, BCryptHash
+end
+DataMapper.auto_upgrade!
+
 
 # ** SHOW **
 # Root to the index page
@@ -38,6 +51,21 @@ post '/' do
   n.save
     redirect '/'
 end
+
+get "/register" do
+	haml :register
+end
+
+# assign email and password to varibles and then save them into the db and removes extra space, lowercase the email.
+post "/register" do
+	user_email = params[:email]
+	user_pw = params[:password]
+		u = User.new
+		u.email = params[:email].downcase.chomp
+		u.password = params[:password].chomp
+		u.save
+			"Thank you for registeration."
+	end
 
 # ** EDIT **
 # Retrieves notes ID to edit the note

@@ -1,0 +1,10 @@
+%h2 register
+%form{:action => "/register", :method => "post"}
+  %filedest
+    %ul
+      %label{:for => "Email"} Email:
+      %input{:type => "textbox", :name => "email", :class => "text"}
+        %br
+      %label{:for => "Password"} Password:
+      %input{:type => "password", :name => "password", :class => "password"}
+    %input{:type => "submit", :value => "register", :class => "button"} 
