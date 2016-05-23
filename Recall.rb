@@ -10,9 +10,6 @@ require './models/user'
 # Enable login sessions
 enable :sessions
 
-# forward port for Vagrant
-set :bind, '0.0.0.0'
-
 # ** SHOW **
 # Root to the index page
 # Pull all notes from the DB into an instance varible to access from the index page in descends order.
