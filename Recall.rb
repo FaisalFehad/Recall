@@ -4,6 +4,7 @@ require 'rubygems'
 require 'data_mapper'
 require "bcrypt"
 
+# Required models
 require './models/note'
 require './models/user'
 
@@ -30,6 +31,7 @@ post '/' do
     redirect '/'
 end
 
+# Regester view
 get "/register" do
 	haml :register
 end
