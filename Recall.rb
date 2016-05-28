@@ -4,7 +4,7 @@ require 'rubygems'
 require 'data_mapper'
 require "bcrypt"
 
-# Required models
+# Required models and database
 require './models/note'
 require './models/user'
 
